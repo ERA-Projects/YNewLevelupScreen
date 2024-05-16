@@ -22,7 +22,7 @@
 		"file": "skill12a.BMP",
 		"index": 0
 	},
-	"mod_version": "1.5",
+	"mod_version": "1.5.1",
 	"priority": 0,
 	"compatibility": {
 		"class": "all",
