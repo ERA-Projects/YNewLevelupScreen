@@ -19,7 +19,7 @@
 	"author": "[igrik]",
 	"homepage": "http://wforum.heroes35.net/",
 	"icon": {
-		"file": "skill12a.BMP",
+		"file": "icon.bmp",
 		"index": 0
 	},
 	"mod_version": "1.5.1",
