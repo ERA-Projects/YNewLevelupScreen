@@ -12,9 +12,10 @@ ZVSE2
 ; FU 31870 - 31876;
 ; для временного хранения z1 - z101!
 
-
-!#UN:P124/0;                           [отключение опции: обучение 2м дополнительным навыкам.]
-!#UN:P182/1;                           [включение опции: отображение скрытых навыков]
+; Manage WoG Options
+!#UN:P881/0;                           [Disable Custom Primary Skills]
+; Disable the three skills leveling up dialogue from Third Class option. This must be executed later than Third Class
+!#VRi^es_733_threeSkillsDlg_enabled^:S(FALSE);
 
 !?FU31873;                             [функция, на которую установлен хук]
 !!SN:W^NewLevelupScreenOn^/?y1;        [проверка на вызов в dll]
