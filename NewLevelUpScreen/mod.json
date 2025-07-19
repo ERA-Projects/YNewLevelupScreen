@@ -1,0 +1,29 @@
+{
+	"caption": {
+		"en_US": "New Level-up Screen"
+	},
+	"description": {
+		"full": {
+			"en_US": "readme.md"
+		},
+		"short": {
+			"en_US": ""
+		}
+	},
+	"author": "Wyvern, [igrik]",
+	"homepage": "http://wforum.heroes35.net/",
+	"icon": {
+		"file": "icon.bmp",
+		"index": 0
+	},
+	"mod_version": "3.1",
+	"priority": 0,
+	"compatibility": {
+		"class": "all",
+		"entries": {}
+	},
+	"platform": "era",
+	"info_version": "3.x",
+	"plugins": {},
+	"category": "cheats"
+}

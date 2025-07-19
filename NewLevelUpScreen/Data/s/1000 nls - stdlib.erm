@@ -1,0 +1,76 @@
+ZVSE2
+
+!#UN:P881/0;
+!#VRi^es_733_threeSkillsDlg_enabled^:S(FALSE);
+
+!?FU31891;
+!#VA(result:x);
+
+!!SN:W^Advanced_Classes_Mod_Active^/?(acmActive:y);
+!!VR(result):S(acmActive);
+
+!?FU31892;
+!#VA(result:x);
+
+!!VRi^acm_optionNoSkillDependenciesOnClass^:S?(acmOptNoSkillDep:y);
+!!VR(result):S(acmOptNoSkillDep);
+
+!?FU31893;
+!#VA(hero:x) (skill:x) (level:x);
+
+!!FU31891:P?(acmActive:y);
+!!FU&(acmActive)<>1:E;
+
+!!FU(acm_GetSecSkillLevel):P(hero)/(skill)/?(levelSS:y);
+!!SN:Vi^acm_SecSkillsBackup^/(skill)/?(levelSSBak:y);
+
+!!VR(levelChanged:y):S(levelSSBak) &(BIT_31) B;
+!!VR(levelSSBak):Sd~(BIT_31);
+
+!!VR(level)&(levelChanged)=(FALSE):S(levelSS);
+!!VR(level)&(levelChanged)=(TRUE):S(levelSSBak);
+
+!!FU(H3_Mod_Check_Skill_Level):P(hero)/?(isMaster:y)/?(isGrandMaster:y)/(skill);
+!!VR(level)&(isMaster)=(TRUE)/(isGrandMaster)=(FALSE):S4;
+!!VR(level)&(isMaster)=(TRUE)/(isGrandMaster)=(TRUE):S5;
+
+!?FU31894;
+!#VA(hero:x) (skill:x) (level:x);
+
+!!FU31891:P?(acmActive:y);
+!!FU&(acmActive)<>1:E;
+
+!!SN:W^Master_Level_Global_Value^/?(master:y);
+!!SN:W^Grandmaster_Level_Global_Value^/?(grandmaster:y);
+
+!!FU(acm_RecalcClassPoints):P(hero)/?(warriorPoints:y)/?(magePoints:y)/?(adventurerPoints:y)/1;
+!!FU(acm_GetSkillDependenciesOnClass):P?(skillDeps:y);
+!!SN:V(skillDeps)/(skill)/?(requiredClass:y);
+
+!!VR(maxLevel:y):S5;
+
+!!if&(requiredClass)=1;
+  !!VR(maxLevel)&(warriorPoints)<(master):S3;
+  !!VR(maxLevel)&(warriorPoints)>=(master)/(warriorPoints)<(grandmaster):S4;
+  !!VR(maxLevel)&(warriorPoints)>=(grandmaster):S5;
+!!el&(requiredClass)=2;
+  !!VR(maxLevel)&(magePoints)<(master):S3;
+  !!VR(maxLevel)&(magePoints)>=(master)/(magePoints)<(grandmaster):S4;
+  !!VR(maxLevel)&(magePoints)>=(grandmaster):S5;
+!!el&(requiredClass)=4;
+  !!VR(maxLevel)&(adventurerPoints)<(master):S3;
+  !!VR(maxLevel)&(adventurerPoints)>=(master)/(adventurerPoints)<(grandmaster):S4;
+  !!VR(maxLevel)&(adventurerPoints)>=(grandmaster):S5;
+!!el&(requiredClass)=0;
+  !!VR(maxLevel):S5;
+!!en;
+
+!!VR(level):S(maxLevel);
+
+!?FU31895;
+!#VA(hero:x) (skill:x) (level:x);
+
+!!FU31891:P?(acmActive:y);
+!!FU&(acmActive)<>1:E;
+
+!!FU(acm_SetSecSkillLevel):P(hero)/(skill)/(level);
