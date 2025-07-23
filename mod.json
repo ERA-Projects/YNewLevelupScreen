@@ -1,13 +1,16 @@
 {
 	"caption": {
-		"en_US": "New Level-up Screen"
+		"en_US": "New Level-up Screen",
+		"ru_RU": "Новый экран повышения уровня"
 	},
 	"description": {
 		"full": {
-			"en_US": "readme.md"
+			"en_US": "readme.md",
+			"ru_RU": "readme_ru.md"
 		},
 		"short": {
-			"en_US": ""
+			"en_US": "",
+			"ru_RU": ""
 		}
 	},
 	"author": "Wyvern, [igrik]",
